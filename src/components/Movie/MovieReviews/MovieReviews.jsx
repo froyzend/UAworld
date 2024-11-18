@@ -26,7 +26,8 @@ const MovieReviews = () => {
       <ul className={css.reviewsList}>
         {reviews.map((review) => (
           <li className={css.reviewsItem} key={review.id}>
-            {review.author} - {review.content}
+            <span className={css.author}>{review.author}</span>
+            <spa className={css.content}>{review.content}</spa>
           </li>
         ))}
       </ul>

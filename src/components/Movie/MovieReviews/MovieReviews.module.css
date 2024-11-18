@@ -1,0 +1,36 @@
+.reviews {
+    padding: 16px;
+    background-color: rgba(112, 105, 112, 0.47);
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(222, 215, 215, 0.5);
+}
+
+.reviewsList {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+    gap: 20px;
+    padding: 16px;
+}
+
+.reviewsItem {
+    background-color: rgb(65 51 66 / 39%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(222, 215, 215, 0.5);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.author {
+    font-size: 20px;
+    color: #CFB01C;
+}
+
+.content {
+    font-size: 16px;
+}

@@ -4,6 +4,7 @@ import css from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <header className={css.header}>
+      <span className={css.logo}>UAworld</span>
       <nav>
         <ul className={css.listHeader}>
           <li className={css.itemHeader}>

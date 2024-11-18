@@ -1,11 +1,27 @@
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
 }
 
+
+.logo {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 700;
+    background: #CFB01C;
+    background: linear-gradient(to right, #CFB01C 0%, #3F2ACF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .listHeader {
+
     background-color: rgba(240, 248, 255, 0.468);
     width: 700px;
     display: flex;
@@ -18,8 +34,14 @@
 }
 
 .itemHeader {
-    font-size: 36px;
+    font-family: Georgia, serif;
+    font-size: 32px;
     font-weight: 600;
     color: rgb(25, 21, 21);
     filter: drop-shadow(1px 1px 6px rgba(134, 30, 30, 0.5));
+    transition: color 0.3s ease-in-out;
+}
+
+.itemHeader:hover {
+    color: #CFB01C;
 }
