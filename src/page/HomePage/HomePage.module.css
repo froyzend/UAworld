@@ -1,0 +1,9 @@
+.homePage {
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.homeTitle {
+    font-size: 48px;
+    font-weight: 600;
+}

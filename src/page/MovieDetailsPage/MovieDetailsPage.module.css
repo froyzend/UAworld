@@ -1,0 +1,70 @@
+.container {
+    padding: 80px 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+}
+
+.contentColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detalisTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.movieImg {
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+
+}
+
+.movieInfo p {
+    color: #b8b8b8;
+}
+
+
+.linkContainer {
+    display: flex;
+    gap: 30px;
+}
+
+.link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #9881dc;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.link:hover {
+    background-color: #5b40b3;
+}

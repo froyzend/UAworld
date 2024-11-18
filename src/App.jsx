@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./page/HomePage";
-import MoviesPage from "./page/MoviesPage";
-import MovieDetailsPage from "./page/MovieDetailsPage";
-import MovieCast from "./components/Movie/MovieCast";
-import MovieReviews from "./components/Movie/MovieReviews";
+import HomePage from "./page/HomePage/HomePage";
+import MoviesPage from "./page/MoviePage/MoviesPage";
+import MovieDetailsPage from "./page/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "./components/Movie/MovieCast/MovieCast";
+import MovieReviews from "./components/Movie/MovieReviews/MovieReviews";
 import NotFoundPage from "./page/NotFoundPage";
 import Navigation from "./components/Navigation/Navigation";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <Navigation />
         <Routes>

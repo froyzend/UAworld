@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import BtnBack from "../components/BtnBack/BtnBack";
 
 const NotFoundPage = () => {
   const { movieId } = useParams();
@@ -15,7 +16,10 @@ const NotFoundPage = () => {
   return (
     <div>
       <h2>Page not found</h2>
-      <Link to={backLinkHref}>Back</Link>;
+      <Link to={backLinkHref}>
+        <BtnBack />
+      </Link>
+      ;
     </div>
   );
 };

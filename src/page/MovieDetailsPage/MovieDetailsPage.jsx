@@ -4,13 +4,15 @@ import {
   getMovieDetails,
   getMovieCredits,
   getMovieReviews,
-} from "../server/tmdb";
+} from "../../server/tmdb";
 {
   /*import MovieCast from "../components/Movie/MovieCast";
 import MovieReviews from "../components/Movie/MovieReviews"; */
 }
 
 import { ThreeDots } from "react-loader-spinner";
+import BtnBack from "../../components/BtnBack/BtnBack";
+import css from "./MovieDetailsPage.module.css";
 
 export const defaultImg =
   "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
@@ -80,39 +82,48 @@ const MovieDetailsPage = () => {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>{movieData.movie.title}</h2>
-      <img
-        src={
-          movieData.movie.poster_path
-            ? `${BASE_IMAGE_URL}${movieData.movie.poster_path}`
-            : defaultImg
-        }
-        alt={movieData.movie.title}
-        style={{ width: "300px", borderRadius: "10px", marginBottom: "20px" }}
-      />
-      <p>
-        <strong>About the movie:</strong>{" "}
-        {movieData.movie.overview || "No description"}
-      </p>
-      <p>
-        <strong>Date of release:</strong>{" "}
-        {movieData.movie.release_date || "No date"}
-      </p>
-      <p>
-        <strong>Rating:</strong> {movieData.movie.vote_average || "No rating"} /
-        10
-      </p>
-      <Link to="cast">
-        <button>Cast</button>
-      </Link>
-      <Link to="reviews">
-        <button>Reviews</button>
-      </Link>
+    <div className={css.container}>
+      <BtnBack />
+      <div className={css.gridContainer}>
+        <img
+          className={css.movieImg}
+          src={
+            movieData.movie.poster_path
+              ? `${BASE_IMAGE_URL}${movieData.movie.poster_path}`
+              : defaultImg
+          }
+          alt={movieData.movie.title}
+        />
+        <div className={css.contentColumn}>
+          <h2 className={css.detalisTitle}>{movieData.movie.title}</h2>
+          <div className={css.descriptionContainer}>
+            <p>
+              <strong>About the movie:</strong>{" "}
+              {movieData.movie.overview || "No description"}
+            </p>
+          </div>
+          <div className={css.movieInfo}>
+            <p className={css.text}>
+              <strong>Date of release:</strong>{" "}
+              {movieData.movie.release_date || "No date"}
+            </p>
+            <p className={css.text}>
+              <strong>Rating:</strong>{" "}
+              {movieData.movie.vote_average || "No rating"} / 10
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={css.linkContainer}>
+        <Link className={css.link} to="cast">
+          Cast
+        </Link>
+
+        <Link className={css.link} to="reviews">
+          Reviews
+        </Link>
+      </div>
       <Outlet />
-      {/*
-      <MovieCast cast={cast} onCastClick={handleCastClick} />
-      <MovieReviews reviews={reviews} onReviewClick={handleReviewClick} />*/}
     </div>
   );
 };

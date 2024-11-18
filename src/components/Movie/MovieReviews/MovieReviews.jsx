@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
-import { getMovieReviews } from "../../server/tmdb";
+import { getMovieReviews } from "../../../server/tmdb";
 import { useState, useEffect } from "react";
+
+import css from "./MovieReviews.module.css";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -19,11 +21,11 @@ const MovieReviews = () => {
     movieReviews();
   }, [movieId]);
   return (
-    <div>
+    <div className={css.reviews}>
       <h2>Reviews</h2>
-      <ul>
+      <ul className={css.reviewsList}>
         {reviews.map((review) => (
-          <li key={review.id}>
+          <li className={css.reviewsItem} key={review.id}>
             {review.author} - {review.content}
           </li>
         ))}

@@ -1,6 +1,8 @@
-import { searchMovies } from "../server/tmdb";
+import { searchMovies } from "../../server/tmdb";
 import { useEffect, useState } from "react";
-import MovieList from "../components/Movie/MovieList";
+import MovieList from "../../components/Movie/MovieList/MovieList";
+import css from "./MoviesPage.module.css";
+import { FcSearch } from "react-icons/fc";
 
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
@@ -19,16 +21,20 @@ const MoviesPage = () => {
   };
 
   return (
-    <div>
-      <h2>Search your movie</h2>
-      <form onSubmit={handleSubmit}>
+    <div className={css.containerPage}>
+      <h2 className={css.titleSearch}>Search your movie</h2>
+      <form className={css.searchForm} onSubmit={handleSubmit}>
         <input
+          className={css.searchInput}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search movies..."
         />
-        <button type="submit">Search</button>
+        <button className={css.searchButton} type="submit">
+          Search
+          <FcSearch />
+        </button>
       </form>
       <MovieList movies={movies} />
     </div>

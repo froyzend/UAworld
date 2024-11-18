@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
-import { defaultImg, BASE_IMAGE_URL } from "../../page/MovieDetailsPage";
+import {
+  defaultImg,
+  BASE_IMAGE_URL,
+} from "../../../page/MovieDetailsPage/MovieDetailsPage";
+import css from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
   return (
-    <ul>
+    <ul className={css.listMovies}>
       {movies.map((movie) => (
-        <li key={movie.id}>
+        <li className={css.itemMovie} key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
             <div>
               <img
+                className={css.img}
                 src={
                   movie.poster_path
                     ? `${BASE_IMAGE_URL}${movie.poster_path}`
                     : defaultImg
                 }
                 alt={movie.title}
-                style={{
-                  width: "200px",
-                  borderRadius: "10px",
-                  marginBottom: "10px",
-                }}
               />
-              <p>{movie.title}</p>
+              <p className={css.title}>{movie.title}</p>
             </div>
           </Link>
         </li>
