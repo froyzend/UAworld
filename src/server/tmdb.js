@@ -1,5 +1,6 @@
 import axios from "axios";
 
+/*Токен ,а не ключ */
 const API_KEY =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YzlkYjhkMGZlMTg1NTBkMmRlMzgzNmI1YzJlY2JmZCIsIm5iZiI6MTczMTY4MDQ0OC4yNzMyNDQ2LCJzdWIiOiI2NzJjODNiZGQ5OGJiYzM5NzdhZDFlOTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._1syfXQ8vtlXXneE4RJBJfKxPYaoM8VgLNavyHMQzi8";
 

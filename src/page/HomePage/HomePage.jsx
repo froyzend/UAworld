@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <main>
       <div className={css.homePage}>
-        <h2 className="homeTitle">Trending movies</h2>
+        <h2 className={css.homeTitle}>Trending movies</h2>
         <MovieList movies={movies} />
       </div>
     </main>

@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Link, useParams, Outlet } from "react-router-dom";
 import {
   getMovieDetails,
   getMovieCredits,
   getMovieReviews,
 } from "../../server/tmdb";
-{
-  /*import MovieCast from "../components/Movie/MovieCast";
-import MovieReviews from "../components/Movie/MovieReviews"; */
-}
-
 import { ThreeDots } from "react-loader-spinner";
 import BtnBack from "../../components/BtnBack/BtnBack";
 import css from "./MovieDetailsPage.module.css";
@@ -113,17 +108,19 @@ const MovieDetailsPage = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className={css.linkContainer}>
-        <Link className={css.link} to="cast">
-          Cast
-        </Link>
+        <div className={css.linkContainer}>
+          <Link className={css.link} to="cast">
+            Cast
+          </Link>
 
-        <Link className={css.link} to="reviews">
-          Reviews
-        </Link>
+          <Link className={css.link} to="reviews">
+            Reviews
+          </Link>
+        </div>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
