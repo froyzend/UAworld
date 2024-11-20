@@ -1,10 +1,6 @@
 import { useState, useEffect, Suspense } from "react";
 import { Link, useParams, Outlet, useLocation } from "react-router-dom";
-import {
-  getMovieDetails,
-  getMovieCredits,
-  getMovieReviews,
-} from "../../server/tmdb";
+import { getMovieDetails } from "../../server/tmdb";
 import { ThreeDots } from "react-loader-spinner";
 import BtnBack from "../../components/BtnBack/BtnBack";
 import css from "./MovieDetailsPage.module.css";
@@ -17,50 +13,27 @@ export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const [movieData, setMovieData] = useState({
-    movie: null,
-    cast: [],
-    reviews: [],
-  });
+  const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
-
-    const fetchDetails = async () => {
+    const fetchMovieDetails = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const [movieDetails, movieCredits, movieReviews] = await Promise.all([
-          getMovieDetails(movieId),
-          getMovieCredits(movieId),
-          getMovieReviews(movieId),
-        ]);
-
-        if (isMounted) {
-          setMovieData({
-            movie: movieDetails,
-            cast: movieCredits.cast,
-            reviews: movieReviews,
-          });
-        }
+        const movieDetails = await getMovieDetails(movieId);
+        setMovie(movieDetails);
       } catch (err) {
-        if (isMounted) {
-          console.error("Failed to fetch movie data", err);
-          setError("Failed to fetch movie data");
-        }
+        console.error("Failed to fetch movie details", err);
+        setError("Failed to fetch movie details");
       } finally {
-        if (isMounted) setLoading(false);
+        setLoading(false);
       }
     };
 
-    fetchDetails();
-
-    return () => {
-      isMounted = false;
-    };
+    fetchMovieDetails();
   }, [movieId]);
 
   if (loading) {
@@ -82,7 +55,7 @@ const MovieDetailsPage = () => {
     );
   }
 
-  if (!movieData.movie) {
+  if (!movie) {
     return <div>Movie not found</div>;
   }
 
@@ -92,7 +65,7 @@ const MovieDetailsPage = () => {
     release_date = "Unknown date",
     vote_average = "No rating",
     poster_path,
-  } = movieData.movie;
+  } = movie;
 
   return (
     <div className={css.container}>
@@ -120,16 +93,12 @@ const MovieDetailsPage = () => {
           </div>
         </div>
         <div className={css.linkContainer}>
-          {movieData.cast.length > 0 && (
-            <Link className={css.link} to="cast" state={{ from: location }}>
-              Cast
-            </Link>
-          )}
-          {movieData.reviews.length > 0 && (
-            <Link className={css.link} to="reviews" state={{ from: location }}>
-              Reviews
-            </Link>
-          )}
+          <Link className={css.link} to="cast" state={{ from: location }}>
+            Cast
+          </Link>
+          <Link className={css.link} to="reviews" state={{ from: location }}>
+            Reviews
+          </Link>
         </div>
       </div>
       <Suspense

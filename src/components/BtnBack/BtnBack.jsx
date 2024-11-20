@@ -1,18 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useRef } from "react";
+import { useLocation, Link } from "react-router-dom";
 import css from "./BtnBack.module.css";
 
 const BtnBack = () => {
   const location = useLocation();
 
-  const backTo = location.state?.from || "/movies";
+  /*Сохраняем начальный путь или дефолтный*/
+  const backLocationRef = useRef(location.state?.from || "/movies");
 
   return (
-    <Link to={backTo}>
-      <button className={css.btnBack}>
-        <AiOutlineArrowLeft />
-        Back
-      </button>
+    // Ссылка для перехода назад
+
+    <Link to={backLocationRef.current} className={css.btnBack}>
+      Back
     </Link>
   );
 };
