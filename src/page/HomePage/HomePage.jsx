@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from "../../server/tmdb";
-import MovieList from "../../components/Movie/MovieList/MovieList";
+import MovieList from "../../components/MovieList/MovieList";
 import css from "./HomePage.module.css";
 
 const HomePage = () => {

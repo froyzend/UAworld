@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   defaultImg,
   BASE_IMAGE_URL,
-} from "../../../page/MovieDetailsPage/MovieDetailsPage";
+} from "../../page/MovieDetailsPage/MovieDetailsPage";
 import css from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {

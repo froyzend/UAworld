@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getMovieReviews } from "../../../server/tmdb";
+import { getMovieReviews } from "../../server/tmdb";
 import { useState, useEffect } from "react";
 
 import css from "./MovieReviews.module.css";

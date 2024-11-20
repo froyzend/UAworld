@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getMovieCredits } from "../../../server/tmdb";
+import { getMovieCredits } from "../../server/tmdb";
 import { useState, useEffect } from "react";
 import css from "./MovieCast.module.css";
 

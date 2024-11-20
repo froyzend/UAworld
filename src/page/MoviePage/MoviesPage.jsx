@@ -1,6 +1,6 @@
 import { searchMovies } from "../../server/tmdb";
 import { useEffect, useState } from "react";
-import MovieList from "../../components/Movie/MovieList/MovieList";
+import MovieList from "../../components/MovieList/MovieList";
 import css from "./MoviesPage.module.css";
 import { FcSearch } from "react-icons/fc";
 import { useSearchParams } from "react-router-dom";
