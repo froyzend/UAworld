@@ -9,7 +9,7 @@ const BtnBack = () => {
   const backLocationRef = useRef(location.state?.from || "/movies");
 
   return (
-    // Ссылка для перехода назад
+    /*Ссылка для перехода назад*/
 
     <Link to={backLocationRef.current} className={css.btnBack}>
       Back
